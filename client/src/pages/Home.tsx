@@ -3,7 +3,6 @@
  * Editorial fintech precision meets boutique-hospitality warmth: asymmetry, signal rails,
  * selective violet emphasis, and operational surfaces over generic SaaS cards.
  */
-import { useState } from "react";
 import {
   Activity,
   ArrowRight,
@@ -12,19 +11,17 @@ import {
   BellRing,
   CalendarRange,
   Check,
-  ChevronDown,
   Command,
   Hotel,
   Layers3,
   ListTree,
-  Menu,
   MessageCircle,
   SlidersHorizontal,
   Sparkles,
   TrendingUp,
-  X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { SiteFooter, SiteHeader } from "@/components/SiteShell";
 
 const heroImage = "/manus-storage/signalstay-hero_ba6d1dbc.jpg";
 const analyticsImage = "/manus-storage/signalstay-analytics_9510ba1f.jpg";
@@ -79,15 +76,6 @@ function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function SignalMark({ compact = false }: { compact?: boolean }) {
-  return (
-    <a className={`brand-lockup ${compact ? "brand-lockup--compact" : ""}`} href="#top" aria-label="SignalStay home">
-      <img src={markImage} alt="" className="brand-mark" />
-      <span className="brand-name">Signal<span>Stay</span></span>
-    </a>
-  );
-}
-
 function HeroOrbit() {
   return (
     <div className="hero-orbit" aria-label="The SignalStay revenue loop: visibility, pricing, and distribution">
@@ -105,30 +93,13 @@ function HeroOrbit() {
 }
 
 export default function Home() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
   const go = (id: string) => {
-    setMobileOpen(false);
     scrollToSection(id);
   };
 
   return (
     <div id="top" className="signalstay-site">
-      <header className="site-header">
-        <div className="header-inner">
-          <SignalMark />
-          <nav className={`desktop-nav ${mobileOpen ? "desktop-nav--open" : ""}`} aria-label="Main navigation">
-            <a href="#model" onClick={() => setMobileOpen(false)}>The model</a>
-            <a href="#loop" onClick={() => setMobileOpen(false)}>How it works</a>
-            <a href="#services" onClick={() => setMobileOpen(false)}>What's included</a>
-            <a href="#about" onClick={() => setMobileOpen(false)}>For operators <ChevronDown size={13} /></a>
-          </nav>
-          <button className="header-cta" onClick={() => go("contact")}><span>Book a signal review</span><ArrowUpRight size={15} /></button>
-          <button className="menu-toggle" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X size={21} /> : <Menu size={21} />}
-          </button>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="hero-section" style={{ backgroundImage: `linear-gradient(90deg, rgba(8, 13, 34, .96) 0%, rgba(8, 13, 34, .86) 42%, rgba(8, 13, 34, .35) 100%), url(${heroImage})` }}>
@@ -253,7 +224,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer"><div className="content-frame footer-inner"><SignalMark compact /><div className="footer-note">Revenue operations for the hospitality teams<br />who want to see around the corner.</div><div className="footer-links"><a href="#model">The model</a><a href="#loop">How it works</a><a href="#services">What's included</a><a href="#contact">Contact</a></div><div className="footer-legal">© 2026 SignalStay <span>·</span> Built for better signals</div></div></footer>
+      <SiteFooter />
     </div>
   );
 }
