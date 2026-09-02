@@ -8,6 +8,10 @@
 - [x] Verify TypeScript and production build.
 - [x] Verify desktop and mobile previews for representative routes.
 - [ ] Save the revised managed checkpoint and deliver the project version.
+- [x] Map the reference site's detailed page sections and FAQ depth.
+- [x] Build distinct detailed STR, hotel, customer, resource, company, and booking layouts.
+- [x] Add sticky navbar scroll state with smooth background transition.
+- [x] Verify sticky behavior, hover menus, page depth, and responsive layouts.
 - [x] Remove the always-visible secondary navigation bar.
 - [x] Add hover-revealed mega-menus to the primary navbar.
 - [x] Expand the header spacing and verify desktop/mobile navigation behavior.

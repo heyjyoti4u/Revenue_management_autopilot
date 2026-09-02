@@ -3,7 +3,7 @@
  * The information architecture mirrors the reference category while the interaction model,
  * naming, colors, and component treatment remain independently branded.
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -70,11 +70,20 @@ export function SiteHeader() {
   const [location] = useLocation();
   const [menu, setMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 18);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const close = () => { setMenu(null); setMobileOpen(false); };
 
   return (
     <>
-      <header className="site-header site-header--shared">
+      <header className={`site-header site-header--shared ${scrolled ? "site-header--scrolled" : ""}`}>
         <div className="header-inner">
           <SignalMark />
           <nav className="desktop-nav desktop-nav--shared" aria-label="Main navigation">
