@@ -8,6 +8,9 @@
 - [x] Verify TypeScript and production build.
 - [x] Verify desktop and mobile previews for representative routes.
 - [ ] Save the revised managed checkpoint and deliver the project version.
+- [x] Inspect why the sticky header may not remain pinned during scrolling.
+- [x] Fix reliable viewport-sticky positioning and scroll background transition.
+- [x] Verify desktop and mobile sticky behavior before saving the revision.
 - [x] Map the reference site's detailed page sections and FAQ depth.
 - [x] Build distinct detailed STR, hotel, customer, resource, company, and booking layouts.
 - [x] Add sticky navbar scroll state with smooth background transition.

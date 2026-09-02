@@ -330,3 +330,7 @@ h1 em, h2 em { color: var(--violet-bright); font-style: normal; }
   .site-header--shared { top: 0; padding-top: 10px; margin-bottom: -67px; }
   .site-header--shared.site-header--scrolled { top: 0; padding-top: 6px; margin-bottom: -63px; }
 }
+
+/* Sticky reliability fix: `overflow: hidden` on the page root can create a non-scrolling
+   containing block for position: sticky. Clip visual overflow without creating that scroll container. */
+.signalstay-site { overflow: clip; }
