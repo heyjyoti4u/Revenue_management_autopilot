@@ -256,3 +256,29 @@ h1 em, h2 em { color: var(--violet-bright); font-style: normal; }
 @media (max-width: 600px) {
   .interior-hero-inner { padding-top: 89px; }.interior-diagram { width: min(290px, 100%); }.diagram-center { width: 96px; height: 96px; }.diagram-center img { width: 28px; height: 28px; }.diagram-pill { min-width: 88px; padding: 9px; }.diagram-pill--two { right: -8%; }.diagram-pill--three { left: -8%; }.interior-copy h1 { letter-spacing: -.08em; }.interior-intro-section, .interior-action-section, .interior-image-section, .booking-section { padding: 78px 0; }.interior-action-panel { padding: 25px 22px; }.booking-form { padding: 24px 19px 25px; box-shadow: 9px 9px 0 rgba(139,92,246,.09); }.interior-image-panel { min-height: 350px; }.image-panel-chart { right: 5%; bottom: 20%; left: 5%; }.image-panel-foot { right: 5%; left: 5%; }.interior-cta h2 { font-size: clamp(41px, 12vw, 56px); }
 }
+
+/* Navbar refinement: one expanded pill, hover-connected menus, no permanent sub-navigation rail. */
+.site-header--shared .header-inner { width: min(1220px, calc(100% - 48px)); padding-left: 22px; padding-right: 11px; gap: 34px; }
+.site-header--shared .desktop-nav--shared { gap: 28px; }
+.site-header--shared .nav-group { display: flex; align-items: center; height: 100%; }
+.site-header--shared .nav-trigger, .site-header--shared .desktop-nav--shared > a { white-space: nowrap; }
+.site-header--shared .nav-popover { top: calc(100% + 14px); }
+.site-header--shared .nav-popover::before { content: ""; position: absolute; top: -15px; left: 0; right: 0; height: 16px; }
+.site-header--shared .nav-popover--company::before { left: auto; right: 0; width: 100%; }
+.site-header--shared .nav-trigger svg { transition: transform 180ms ease-out; }
+.site-header--shared .nav-group:hover .nav-trigger svg, .site-header--shared .nav-trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.site-header--shared .nav-group:hover .nav-trigger, .site-header--shared .nav-trigger--active { color: var(--navy); }
+.site-header--shared .nav-group:hover .nav-trigger::after, .site-header--shared .nav-trigger--active::after { transform: scaleX(1); transform-origin: left; }
+
+@media (max-width: 1000px) {
+  .site-header--shared .header-inner { width: min(100% - 32px, 960px); gap: 20px; }
+  .site-header--shared .desktop-nav--shared { gap: 16px; }
+}
+
+@media (max-width: 760px) {
+  .site-header--shared .header-inner { width: calc(100% - 28px); padding-left: 14px; padding-right: 8px; gap: 10px; }
+  .site-header--shared .brand-name { font-size: 18px; }
+  .site-header--shared .brand-mark { width: 28px; height: 28px; }
+  .site-header--shared .header-cta { padding: 10px 12px; font-size: 10px; }
+  .site-header--shared .header-cta svg { width: 13px; }
+}

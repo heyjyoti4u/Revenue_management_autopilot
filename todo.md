@@ -8,3 +8,7 @@
 - [x] Verify TypeScript and production build.
 - [x] Verify desktop and mobile previews for representative routes.
 - [ ] Save the revised managed checkpoint and deliver the project version.
+- [x] Remove the always-visible secondary navigation bar.
+- [x] Add hover-revealed mega-menus to the primary navbar.
+- [x] Expand the header spacing and verify desktop/mobile navigation behavior.
+- [x] Confirm the supplied header reference crops and preserve the requested one-bar layout.

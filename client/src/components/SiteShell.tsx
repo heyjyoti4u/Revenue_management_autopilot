@@ -66,21 +66,10 @@ function SignalMark({ compact = false }: { compact?: boolean }) {
   );
 }
 
-function getSubnav(path: string): { eyebrow: string; title: string; links: NavLink[] } | null {
-  if (path.startsWith("/str")) return { eyebrow: "STR operations", title: "Short-term rental portfolio intelligence", links: navGroups[0].links };
-  if (path.startsWith("/hotel")) return { eyebrow: "Hotel operations", title: "Revenue systems for independent hotels", links: navGroups[1].links };
-  if (path.startsWith("/resources")) return { eyebrow: "Signal library", title: "Useful thinking for revenue operators", links: navGroups[3].links };
-  if (path.startsWith("/case-studies")) return { eyebrow: "Customer signals", title: "Patterns from portfolios like yours", links: navGroups[2].links };
-  if (["/about", "/partners", "/contact", "/careers"].some((route) => path.startsWith(route))) return { eyebrow: "Company", title: "The people and systems behind the signal", links: companyLinks };
-  return null;
-}
-
 export function SiteHeader() {
   const [location] = useLocation();
   const [menu, setMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const subnav = getSubnav(location);
-
   const close = () => { setMenu(null); setMobileOpen(false); };
 
   return (
@@ -89,15 +78,14 @@ export function SiteHeader() {
         <div className="header-inner">
           <SignalMark />
           <nav className="desktop-nav desktop-nav--shared" aria-label="Main navigation">
-            {navGroups.map((group) => <div className="nav-group" key={group.label}>
-              <button className={`nav-trigger ${location.startsWith(group.href) ? "nav-trigger--active" : ""}`} onClick={() => setMenu(menu === group.label ? null : group.label)} aria-expanded={menu === group.label}>{group.label}<ChevronDown size={13} /></button>
+            {navGroups.map((group) => <div className="nav-group" key={group.label} onMouseEnter={() => setMenu(group.label)} onMouseLeave={() => setMenu(null)} onFocus={() => setMenu(group.label)}>
+              <button className={`nav-trigger ${location.startsWith(group.href) ? "nav-trigger--active" : ""}`} onClick={() => setMenu(group.label)} aria-expanded={menu === group.label}>{group.label}<ChevronDown size={13} /></button>
               {menu === group.label && <div className="nav-popover">
                 <div className="nav-popover-lead"><span className="eyebrow eyebrow--violet">{group.label}</span><p>Choose the operating layer you want to explore.</p></div>
                 <div className="nav-popover-links">{group.links.map((link) => <Link key={link.href} href={link.href} onClick={close}><strong>{link.label}</strong><span>{link.description}</span></Link>)}</div>
               </div>}
             </div>)}
-            <Link className={location.startsWith("/case-studies") ? "nav-link--active" : ""} href="/case-studies">Customers</Link>
-            <div className="nav-group"><button className={`nav-trigger ${["/about", "/partners", "/contact", "/careers"].some((route) => location.startsWith(route)) ? "nav-trigger--active" : ""}`} onClick={() => setMenu(menu === "Company" ? null : "Company")} aria-expanded={menu === "Company"}>Company <ChevronDown size={13} /></button>{menu === "Company" && <div className="nav-popover nav-popover--company"><div className="nav-popover-lead"><span className="eyebrow eyebrow--violet">Company</span><p>Meet the people, partners, and principles behind SignalStay.</p></div><div className="nav-popover-links">{companyLinks.map((link) => <Link key={link.href} href={link.href} onClick={close}><strong>{link.label}</strong><span>{link.description}</span></Link>)}</div></div>}</div>
+            <div className="nav-group" onMouseEnter={() => setMenu("Company")} onMouseLeave={() => setMenu(null)} onFocus={() => setMenu("Company")}><button className={`nav-trigger ${["/about", "/partners", "/contact", "/careers"].some((route) => location.startsWith(route)) ? "nav-trigger--active" : ""}`} onClick={() => setMenu("Company")} aria-expanded={menu === "Company"}>Company <ChevronDown size={13} /></button>{menu === "Company" && <div className="nav-popover nav-popover--company"><div className="nav-popover-lead"><span className="eyebrow eyebrow--violet">Company</span><p>Meet the people, partners, and principles behind SignalStay.</p></div><div className="nav-popover-links">{companyLinks.map((link) => <Link key={link.href} href={link.href} onClick={close}><strong>{link.label}</strong><span>{link.description}</span></Link>)}</div></div>}</div>
           </nav>
           <Link className="header-cta" href="/book-a-call-with-our-experts" onClick={close}><span>Book a signal review</span><ArrowUpRight size={15} /></Link>
           <button className="menu-toggle menu-toggle--shared" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? <X size={21} /> : <Menu size={21} />}</button>
@@ -108,7 +96,6 @@ export function SiteHeader() {
           <Link className="mobile-nav-cta" href="/book-a-call-with-our-experts" onClick={close}>Book a signal review <ArrowUpRight size={15} /></Link>
         </div>}
       </header>
-      {subnav && <div className="subnav-wrap"><div className="content-frame subnav-inner"><div className="subnav-title"><span>{subnav.eyebrow}</span><strong>{subnav.title}</strong></div><nav className="subnav-links" aria-label={`${subnav.eyebrow} sub-navigation`}>{subnav.links.map((link) => <Link key={link.href} className={location === link.href ? "subnav-link--active" : ""} href={link.href}>{link.label}</Link>)}</nav></div></div>}
     </>
   );
 }
@@ -117,4 +104,3 @@ export function SiteFooter() {
   return <footer className="site-footer"><div className="content-frame footer-inner"><SignalMark compact /><div className="footer-note">Revenue operations for hospitality teams<br />who want to see around the corner.</div><div className="footer-links"><Link href="/str">For STRs</Link><Link href="/hotel">For Hotels</Link><Link href="/case-studies">Customers</Link><Link href="/resources">Resources</Link><Link href="/about">Company</Link><Link href="/book-a-call-with-our-experts">Book a call</Link></div><div className="footer-legal">© 2026 SignalStay <span>·</span> Built for better signals</div></div></footer>;
 }
 
-export { getSubnav };
