@@ -8,6 +8,12 @@
 - [x] Verify TypeScript and production build.
 - [x] Verify desktop and mobile previews for representative routes.
 - [ ] Save the revised managed checkpoint and deliver the project version.
+- [ ] Inspect local Git state and the selected GitHub repository.
+- [ ] Reconcile remote differences without overwriting unreviewed work.
+- [x] Push the reviewed project to heyjyoti4u/Qroperator.
+- [ ] Inspect heyjyoti4u/Revenue_management_autopilot and local Git state.
+- [ ] Reconcile target-remote history without overwriting unreviewed work.
+- [ ] Push the reviewed project to heyjyoti4u/Revenue_management_autopilot.
 - [x] Inspect why the sticky header may not remain pinned during scrolling.
 - [x] Fix reliable viewport-sticky positioning and scroll background transition.
 - [x] Verify desktop and mobile sticky behavior before saving the revision.
