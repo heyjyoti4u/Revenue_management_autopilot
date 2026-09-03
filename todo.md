@@ -18,6 +18,9 @@
 - [x] Add detailed revenue-management sections and operational data stories.
 - [x] Add dynamic charts with interactive filters and responsive states.
 - [x] Verify chart interactions, builds, previews, and push the updated project.
+- [x] Inspect the internal Revenue Dashboard URL and current navbar/logo structure.
+- [x] Add a discreet five-second press-and-hold hotspot above the logo.
+- [x] Verify normal navbar interactions remain unchanged and save the revision.
 - [x] Inspect why the sticky header may not remain pinned during scrolling.
 - [x] Fix reliable viewport-sticky positioning and scroll background transition.
 - [x] Verify desktop and mobile sticky behavior before saving the revision.

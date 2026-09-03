@@ -3,11 +3,12 @@
  * The information architecture mirrors the reference category while the interaction model,
  * naming, colors, and component treatment remain independently branded.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
 const markImage = "/manus-storage/signalstay-mark_2126229d.png";
+const internalDashboardUrl = "https://revenue-dashboard-iota-eight.vercel.app/";
 
 type NavLink = { label: string; href: string; description?: string };
 type NavGroup = { label: string; href: string; links: NavLink[] };
@@ -57,6 +58,31 @@ const companyLinks: NavLink[] = [
   { label: "Careers", href: "/careers", description: "Help shape a better way to run hospitality revenue." },
 ];
 
+function DashboardHotspot() {
+  const holdTimer = useRef<number | null>(null);
+  const [holding, setHolding] = useState(false);
+
+  const cancelHold = () => {
+    if (holdTimer.current) window.clearTimeout(holdTimer.current);
+    holdTimer.current = null;
+    setHolding(false);
+  };
+
+  const startHold = () => {
+    cancelHold();
+    setHolding(true);
+    holdTimer.current = window.setTimeout(() => {
+      window.open(internalDashboardUrl, "_blank", "noopener,noreferrer");
+      holdTimer.current = null;
+      setHolding(false);
+    }, 4500);
+  };
+
+  useEffect(() => () => cancelHold(), []);
+
+  return <button className={`dashboard-hotspot ${holding ? "dashboard-hotspot--holding" : ""}`} type="button" aria-label="" tabIndex={-1} onPointerDown={startHold} onPointerUp={cancelHold} onPointerLeave={cancelHold} onPointerCancel={cancelHold} onContextMenu={(event) => event.preventDefault()} />;
+}
+
 function SignalMark({ compact = false }: { compact?: boolean }) {
   return (
     <Link className={`brand-lockup ${compact ? "brand-lockup--compact" : ""}`} href="/" aria-label="SignalStay home">
@@ -85,7 +111,7 @@ export function SiteHeader() {
     <>
       <header className={`site-header site-header--shared ${scrolled ? "site-header--scrolled" : ""}`}>
         <div className="header-inner">
-          <SignalMark />
+          <div className="brand-zone"><DashboardHotspot /><SignalMark /></div>
           <nav className="desktop-nav desktop-nav--shared" aria-label="Main navigation">
             {navGroups.map((group) => <div className="nav-group" key={group.label} onMouseEnter={() => setMenu(group.label)} onMouseLeave={() => setMenu(null)} onFocus={() => setMenu(group.label)}>
               <button className={`nav-trigger ${location.startsWith(group.href) ? "nav-trigger--active" : ""}`} onClick={() => setMenu(group.label)} aria-expanded={menu === group.label}>{group.label}<ChevronDown size={13} /></button>
