@@ -10,9 +10,15 @@
 - [ ] Save the revised managed checkpoint and deliver the project version.
 - [ ] Inspect latest local changes and target GitHub main state.
 - [ ] Commit and push the internal dashboard shortcut revision.
-- [ ] Inspect the Vercel-ready local changes and target GitHub main tip.
-- [ ] Commit and push the Vercel configuration and public asset revision.
-- [ ] Confirm the updated remote commit and repository link.
+- [x] Inspect the Vercel-ready local changes and target GitHub main tip.
+- [x] Commit and push the Vercel configuration and public asset revision.
+- [x] Confirm the updated remote commit and repository link.
+- [x] Inspect the invalid Vercel configuration reported by deployment.
+- [x] Replace the invalid Vercel config with a valid SPA setup.
+- [x] Add PWA manifest, icons, metadata, and service worker.
+- [x] Add offline fallback and verify installable app behavior.
+- [x] Replace it with a valid SPA deployment configuration.
+- [x] Validate the build and push the corrected config to GitHub.
 - [ ] Confirm the remote commit and repository link.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
