@@ -10,6 +10,9 @@
 - [ ] Save the revised managed checkpoint and deliver the project version.
 - [ ] Inspect latest local changes and target GitHub main state.
 - [ ] Commit and push the internal dashboard shortcut revision.
+- [ ] Inspect the Vercel-ready local changes and target GitHub main tip.
+- [ ] Commit and push the Vercel configuration and public asset revision.
+- [ ] Confirm the updated remote commit and repository link.
 - [ ] Confirm the remote commit and repository link.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
