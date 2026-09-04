@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
-const markImage = "/manus-storage/signalstay-mark_2126229d.png";
+const markImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663701980008/gxYkkbqEWtQenAdE.png";
 const internalDashboardUrl = "https://revenue-dashboard-iota-eight.vercel.app/";
 
 type NavLink = { label: string; href: string; description?: string };

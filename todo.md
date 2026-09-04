@@ -8,6 +8,13 @@
 - [x] Verify TypeScript and production build.
 - [x] Verify desktop and mobile previews for representative routes.
 - [ ] Save the revised managed checkpoint and deliver the project version.
+- [ ] Inspect latest local changes and target GitHub main state.
+- [ ] Commit and push the internal dashboard shortcut revision.
+- [ ] Confirm the remote commit and repository link.
+- [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
+- [x] Add Vercel build/output configuration and route fallback.
+- [x] Document Vercel import, build settings, and environment requirements.
+- [x] Run deployment checks and save the Vercel-ready checkpoint.
 - [ ] Inspect local Git state and the selected GitHub repository.
 - [ ] Reconcile remote differences without overwriting unreviewed work.
 - [x] Push the reviewed project to heyjyoti4u/Qroperator.

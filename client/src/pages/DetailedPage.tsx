@@ -8,11 +8,11 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { SiteFooter, SiteHeader } from "@/components/SiteShell";
 
-const heroImage = "/manus-storage/signalstay-hero_ba6d1dbc.jpg";
-const analyticsImage = "/manus-storage/signalstay-analytics_9510ba1f.jpg";
-const commsImage = "/manus-storage/signalstay-comms_d7b29c13.jpg";
-const closingImage = "/manus-storage/signalstay-closing_8add029d.jpg";
-const markImage = "/manus-storage/signalstay-mark_2126229d.png";
+const heroImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663701980008/hRdpkRiReQPCotiz.jpg";
+const analyticsImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663701980008/wiQTDrbpxdRmxEfM.jpg";
+const commsImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663701980008/qQEEvdqJIFYqsrHK.jpg";
+const closingImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663701980008/XCpbBWuZkSxsxezY.jpg";
+const markImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663701980008/gxYkkbqEWtQenAdE.png";
 
 type RouteKey = "str" | "revenue" | "ota" | "hotel" | "hotel-revenue" | "hotel-ota" | "customers" | "resources" | "about" | "book";
 
