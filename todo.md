@@ -19,14 +19,19 @@
 - [x] Add offline fallback and verify installable app behavior.
 - [x] Replace it with a valid SPA deployment configuration.
 - [x] Validate the build and push the corrected config to GitHub.
-- [ ] Confirm the remote commit and repository link.
-- [ ] Inspect the latest PWA install-popup checkpoint and target GitHub main tip.
-- [ ] Push the PWA install-popup revision to Revenue_management_autopilot.
-- [ ] Confirm the updated remote commit and repository link.
+- [x] Confirm the remote commit and repository link.
+- [x] Inspect the latest PWA install-popup checkpoint and target GitHub main tip.
+- [x] Push the PWA install-popup revision to Revenue_management_autopilot.
+- [x] Confirm the updated remote commit and repository link.
 - [x] Inspect current PWA registration and installability state.
 - [x] Capture beforeinstallprompt and add a branded install popup.
 - [x] Add iOS/unsupported-browser fallback instructions and dismissal behavior.
 - [x] Verify popup responsiveness, build, and save the revision.
+- [x] Inspect current animation hooks and shared CSS system.
+- [x] Add reusable page entrance and scroll-reveal motion.
+- [x] Polish CSS surfaces, hover states, charts, and responsive motion.
+- [x] Expand page-specific animated sections and reduced-motion behavior.
+- [x] Build, preview, checkpoint, and push the animated revision to GitHub.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
 - [x] Document Vercel import, build settings, and environment requirements.
