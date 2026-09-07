@@ -20,6 +20,10 @@
 - [x] Replace it with a valid SPA deployment configuration.
 - [x] Validate the build and push the corrected config to GitHub.
 - [ ] Confirm the remote commit and repository link.
+- [x] Inspect current PWA registration and installability state.
+- [x] Capture beforeinstallprompt and add a branded install popup.
+- [x] Add iOS/unsupported-browser fallback instructions and dismissal behavior.
+- [x] Verify popup responsiveness, build, and save the revision.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
 - [x] Document Vercel import, build settings, and environment requirements.

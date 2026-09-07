@@ -11,6 +11,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ContentPage from "./pages/ContentPage";
 import DetailedPage from "./pages/DetailedPage";
+import InstallPrompt from "./components/InstallPrompt";
 
 function Router() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <InstallPrompt />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
