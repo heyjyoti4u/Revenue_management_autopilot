@@ -20,6 +20,9 @@
 - [x] Replace it with a valid SPA deployment configuration.
 - [x] Validate the build and push the corrected config to GitHub.
 - [ ] Confirm the remote commit and repository link.
+- [ ] Inspect the latest PWA install-popup checkpoint and target GitHub main tip.
+- [ ] Push the PWA install-popup revision to Revenue_management_autopilot.
+- [ ] Confirm the updated remote commit and repository link.
 - [x] Inspect current PWA registration and installability state.
 - [x] Capture beforeinstallprompt and add a branded install popup.
 - [x] Add iOS/unsupported-browser fallback instructions and dismissal behavior.
