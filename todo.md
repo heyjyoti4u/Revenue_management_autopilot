@@ -32,6 +32,10 @@
 - [x] Polish CSS surfaces, hover states, charts, and responsive motion.
 - [x] Expand page-specific animated sections and reduced-motion behavior.
 - [x] Build, preview, checkpoint, and push the animated revision to GitHub.
+- [x] Define and document a clearly independent SignalStay visual direction.
+- [x] Replace clone-like navigation, composition, typography, palette, and chart treatments.
+- [x] Review desktop/mobile redesign and apply accepted visual-review improvements.
+- [ ] Present the redesign and wait for explicit user approval before pushing to GitHub.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
 - [x] Document Vercel import, build settings, and environment requirements.

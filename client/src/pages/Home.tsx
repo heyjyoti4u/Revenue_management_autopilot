@@ -102,7 +102,7 @@ export default function Home() {
       <SiteHeader />
 
       <main>
-        <section className="hero-section" style={{ backgroundImage: `linear-gradient(90deg, rgba(8, 13, 34, .96) 0%, rgba(8, 13, 34, .86) 42%, rgba(8, 13, 34, .35) 100%), url(${heroImage})` }}>
+        <section className="hero-section" style={{ backgroundImage: `linear-gradient(90deg, rgba(24, 53, 47, .98) 0%, rgba(24, 53, 47, .88) 42%, rgba(24, 53, 47, .38) 100%), url(${heroImage})` }}>
           <div className="hero-grid-lines" />
           <div className="content-frame hero-content">
             <div className="hero-copy">
@@ -194,7 +194,7 @@ export default function Home() {
 
         <section className="comms-section">
           <div className="content-frame comms-grid">
-            <div className="comms-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(8, 13, 34, .85), rgba(8, 13, 34, .18)), url(${commsImage})` }}>
+            <div className="comms-image" style={{ backgroundImage: `linear-gradient(90deg, rgba(24, 53, 47, .88), rgba(24, 53, 47, .16)), url(${commsImage})` }}>
               <div className="image-caption"><span className="caption-dot" /> The operating rhythm</div>
             </div>
             <div className="comms-copy">
@@ -219,7 +219,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="closing-section" id="contact" style={{ backgroundImage: `linear-gradient(90deg, rgba(8, 13, 34, .98) 0%, rgba(8, 13, 34, .78) 58%, rgba(8, 13, 34, .22) 100%), url(${closingImage})` }}>
+        <section className="closing-section" id="contact" style={{ backgroundImage: `linear-gradient(90deg, rgba(24, 53, 47, .98) 0%, rgba(24, 53, 47, .80) 58%, rgba(24, 53, 47, .24) 100%), url(${closingImage})` }}>
           <div className="content-frame closing-inner"><p className="eyebrow eyebrow--violet">A clearer way to run revenue</p><h2>Stop reacting to the calendar.<br /><em>Start reading the signal.</em></h2><p>Bring us the portfolio, the market, or the listing that is keeping you up. We will show you what is moving—and what to do next.</p><button className="button button--violet" onClick={() => window.alert("Thanks — the signal review request is ready for your team to connect.")}>Book a signal review <ArrowUpRight size={17} /></button></div>
         </section>
       </main>

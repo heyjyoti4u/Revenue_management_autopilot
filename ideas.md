@@ -56,3 +56,23 @@ Use the generated three-orbit signal mark without text in the header and favicon
 ## Content Decisions
 
 Use the reference's business themes while rewriting copy for SignalStay. Keep proof metrics explicitly labelled as illustrative demo figures where appropriate; do not present them as verified customer outcomes. Avoid fabricated customer reviews, star ratings, or testimonials. Use real, inspectable interface motifs—rank movement, pricing windows, channel mix, alerts, and communication summaries—rather than fictional quotes.
+
+## Independent Redesign Direction — Field Ledger
+
+The redesign moves SignalStay away from the dark command-center look into a warm editorial field ledger: sun-baked paper, deep eucalyptus ink, and coral signal marks. The product should feel like an intelligent operator's notebook rather than a cloned revenue dashboard.
+
+**Design movement:** contemporary editorial systems design with Swiss information hierarchy and tactile print contrast.
+
+**Core principles:** use paper-like surfaces and hairline rules; build asymmetric split compositions instead of repeated centered hero blocks; make coral marks carry action while eucalyptus carries trust; use charts as annotated evidence, not decoration.
+
+**Color philosophy:** the warm paper canvas makes the product feel human and commercially grounded; eucalyptus signals operational confidence; coral marks moments that need attention; brass is reserved for verified context and review states.
+
+**Layout paradigm:** editorial split pages with offset rails, wide content ledgers, and occasional full-bleed imagery. Navigation is a structured field note rather than a floating pill clone.
+
+**Signature elements:** numbered field-note rails, coral underline strokes, ledger cards with ruled rows, and chart annotations that point to a decision.
+
+**Typography:** Space Grotesk remains for decisive display moments, paired with DM Sans and IBM Plex Mono for operational labels, but hierarchy is lighter, flatter, and more editorial.
+
+**Brand voice:** direct, calm, commercially literate. Example lines: “Turn the calendar into a clearer call.” and “The next move should have a reason.”
+
+**Signature brand color:** Signal Coral `#f26b4f`.
