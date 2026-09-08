@@ -9,7 +9,6 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import StructuralHome from "./pages/StructuralHome";
 import ContentPage from "./pages/ContentPage";
 import DetailedPage from "./pages/DetailedPage";
 import InstallPrompt from "./components/InstallPrompt";
@@ -17,7 +16,7 @@ import InstallPrompt from "./components/InstallPrompt";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={StructuralHome} />
+      <Route path="/" component={Home} />
       <Route path="/str" component={() => <DetailedPage route="str" />} />
       <Route path="/str/revenue-management" component={() => <DetailedPage route="revenue" />} />
       <Route path="/str/ota-optimization" component={() => <DetailedPage route="ota" />} />
