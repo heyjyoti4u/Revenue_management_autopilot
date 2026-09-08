@@ -36,6 +36,11 @@
 - [x] Replace clone-like navigation, composition, typography, palette, and chart treatments.
 - [x] Review desktop/mobile redesign and apply accepted visual-review improvements.
 - [ ] Present the redesign and wait for explicit user approval before pushing to GitHub.
+- [x] Audit and replace the repeated reference-like page rhythm.
+- [x] Rebuild the homepage with a structurally original composition.
+- [x] Create route-specific page ordering and artifacts instead of shared templates.
+- [x] Remove repeated stat strips, orbital motifs, and cloned card rhythms.
+- [x] Review the structural redesign and hold GitHub push for approval.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
 - [x] Document Vercel import, build settings, and environment requirements.
