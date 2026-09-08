@@ -41,6 +41,10 @@
 - [x] Create route-specific page ordering and artifacts instead of shared templates.
 - [x] Remove repeated stat strips, orbital motifs, and cloned card rhythms.
 - [x] Review the structural redesign and hold GitHub push for approval.
+- [ ] Verify the user-applied chart-label edit and run build/preview checks.
+- [ ] Save a new checkpoint for the verified visual edit.
+- [ ] Push the checkpointed revision to Revenue_management_autopilot.
+- [ ] Confirm the remote commit and report the result.
 - [x] Inspect Vite build scripts and SPA routing constraints for Vercel.
 - [x] Add Vercel build/output configuration and route fallback.
 - [x] Document Vercel import, build settings, and environment requirements.
