@@ -5,6 +5,7 @@
  */
 import { ArrowRight, ArrowUpRight, BarChart3, BellRing, CalendarDays, Check, ChevronDown, Clock3, Command, Layers3, MessageCircle, Radar, Search, ShieldCheck, Sparkles, TrendingUp, Users } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Link } from "wouter";
 import { SiteFooter, SiteHeader } from "@/components/SiteShell";
 import Reveal from "@/components/Reveal";
@@ -307,23 +308,84 @@ function DetailFaq({ faqs }: { faqs: RouteData["faqs"] }) {
 }
 
 function DetailForm() {
-  return <form id="review-form" className="detail-form" onSubmit={(event) => { event.preventDefault(); window.alert("Thanks — your SignalStay review request is ready for the team."); }}><p className="eyebrow eyebrow--violet">Request the review</p><h2>Start with the question.</h2><label>Name<input required placeholder="Your name" /></label><label>Business email<input required type="email" placeholder="name@company.com" /></label><label>Portfolio type<select defaultValue="str"><option value="str">Short-term rental portfolio</option><option value="hotel">Independent hotel</option><option value="mixed">Mixed portfolio</option></select></label><label>What are you watching?<textarea placeholder="Rank drop, rate question, channel mix issue…" /></label><button className="button button--violet" type="submit">Submit review request <ArrowUpRight size={16} /></button></form>;
-}
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-export default function DetailedPage({ route }: { route: RouteKey }) {
-  const data = routeData[route];
-  const image = route === "ota" || route === "hotel-ota" ? analyticsImage : route === "resources" ? commsImage : route === "book" ? closingImage : heroImage;
-  const heroOverlay = route === "resources" ? "linear-gradient(90deg, rgba(251,244,232,.98) 12%, rgba(251,244,232,.92) 44%, rgba(251,244,232,.42) 100%)" : "linear-gradient(90deg, rgba(24,53,47,.98) 12%, rgba(24,53,47,.88) 50%, rgba(24,53,47,.46) 100%)";
-  const ctaOverlay = route === "resources" ? "linear-gradient(90deg, rgba(24,53,47,.97), rgba(24,53,47,.72))" : "linear-gradient(90deg, rgba(24,53,47,.97), rgba(24,53,47,.68))";
-  return <div className={`signalstay-site detailed-page detailed-page--${data.theme}`}><SiteHeader /><main>
-    <Reveal className="page-reveal page-reveal--hero"><section className="detailed-hero" style={{ backgroundImage: `${heroOverlay}, url(${image})` }}><div className="detailed-hero-grid" /><div className="content-frame detailed-hero-inner"><div className="detailed-hero-copy"><p className="eyebrow eyebrow--violet"><span className="eyebrow-pulse" />{data.eyebrow}</p><h1>{data.title}<br /><em>{data.emphasis}</em></h1><p>{data.intro}</p><div className="hero-actions"><Link className="button button--violet" href={data.primaryHref}>{data.primary} <ArrowUpRight size={16} /></Link><Link className="button button--ghost-light" href={data.secondaryHref}>{data.secondary} <ArrowRight size={16} /></Link></div><span className="detailed-hero-foot"><i />SignalStay / {data.theme} / daily operating view</span></div><PageArtifact route={route} /></div></section></Reveal>
-    <Reveal className="page-reveal page-reveal--proof"><section className="detail-proof"><div className="content-frame detail-proof-grid">{data.proof.map((item) => <div key={item.label}><span>{item.label}</span><strong>{item.value}</strong><small>{item.note}</small></div>)}</div></section></Reveal>
-    <Reveal className="page-reveal page-reveal--question"><section className="detail-question"><div className="content-frame detail-question-grid"><div className="section-kicker"><span className="section-number">01</span><span>{data.eyebrow}</span></div><div><p className="eyebrow">The gap</p><h2>{data.question}</h2><p className="section-lede">{data.questionCopy}</p><div className="detail-inline-note"><Check size={15} /><span>Signal first / decision attached / team-ready context</span></div></div></div></section></Reveal>
-    <Reveal className="page-reveal page-reveal--steps"><section className="detail-steps"><div className="content-frame"><div className="detail-heading-row"><div><p className="eyebrow eyebrow--violet">How it works</p><h2>{data.stepsTitle}</h2></div><p>{data.stepsIntro}</p></div><div className="detail-step-grid">{data.steps.map((step) => <article key={step.number}><span className="detail-step-number">{step.number}</span><div className="detail-step-icon">{step.number === "01" ? <Search size={18} /> : step.number === "02" ? <TrendingUp size={18} /> : <Layers3 size={18} />}</div><h3>{step.title}</h3><p>{step.copy}</p><div className="detail-tags">{step.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></article>)}</div></div></section></Reveal>
-    <Reveal className="page-reveal page-reveal--operations"><section className="detail-operations"><div className="content-frame detail-operations-grid"><div className="detail-operations-copy"><p className="eyebrow">Behind the numbers</p><h2>{data.operationsTitle}</h2><p className="section-lede">{data.operationsCopy}</p><ul>{["A signal with context, not a naked number", "An owner attached to each next action", "A review window that keeps the decision honest"].map((item) => <li key={item}><Check size={14} />{item}</li>)}</ul><Link className="text-link" href={data.primaryHref}>{data.primary} <ArrowUpRight size={16} /></Link></div><div className="detail-operations-card"><div className="operations-card-head"><span><i />live operating surface</span><b>{data.theme === "resources" ? "library" : data.theme === "book" ? "brief" : "today"}</b></div>{data.operationRows.map((row) => <div className="operations-row" key={row.label}><span>{row.label}</span><strong>{row.value}</strong><small>{row.note}</small></div>)}<div className="operations-card-footer"><span>SignalStay / illustrative view</span><ArrowUpRight size={14} /></div></div></div></section></Reveal>
-    <Reveal className="page-reveal page-reveal--dashboard">{(route === "str" || route === "revenue" || route === "hotel" || route === "hotel-revenue") && <RevenueAutopilotDashboard hotel={route === "hotel" || route === "hotel-revenue"} />}
-    {route === "book" ? <section className="detail-booking"><div className="content-frame detail-booking-grid"><div><p className="eyebrow eyebrow--violet">Free / no commitment</p><h2>A clearer first<br /><em>conversation.</em></h2><p className="section-lede">{data.questionCopy}</p><div className="booking-points"><span><Clock3 size={16} />30 minutes</span><span><MessageCircle size={16} />Operator-led</span><span><ShieldCheck size={16} />No commitment</span></div></div><DetailForm /></div></section> : <section className="detail-faq-section"><div className="content-frame detail-faq-grid"><div><p className="eyebrow eyebrow--violet">Questions operators ask</p><h2>Keep the<br /><em>conversation useful.</em></h2><p className="section-lede">A good page should answer the practical questions before the first conversation starts.</p></div><DetailFaq faqs={data.faqs} /></div></section>}
-    </Reveal>
-    <Reveal className="page-reveal page-reveal--cta"><section className="detail-cta" style={{ backgroundImage: `${ctaOverlay}, url(${closingImage})` }}><div className="content-frame"><p className="eyebrow eyebrow--violet">A better read changes the next move</p><h2>{route === "book" ? "Bring us the signal." : "See what is moving"}<br /><em>{route === "book" ? "We will map it together." : "before the calendar."}</em></h2><Link className="button button--violet" href="/book-a-call-with-our-experts">Book a signal review <ArrowUpRight size={16} /></Link></div></section></Reveal>
-  </main><SiteFooter /></div>;
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const googleFormData = new URLSearchParams();
+
+    // Aapke Google Form URLs se exact mapping
+    googleFormData.append("entry.414754881", formData.get("name") as string);
+    googleFormData.append("entry.1945411071", formData.get("email") as string);
+    googleFormData.append("entry.2028513982", formData.get("portfolio") as string);
+    
+    // IMPORTANT: Aapke links mein textarea ("What are you watching?") ka ID nahi tha. 
+    // Agar form mein ye field hai, toh 'ENTRY_ID_HERE' ko actual ID se replace karein.
+    // Agar nahi hai, toh is code block ko hata dein.
+    const watchingValue = formData.get("watching");
+    if (watchingValue) {
+      googleFormData.append("entry.ENTRY_ID_HERE", watchingValue as string); 
+    }
+
+    // '/viewform' ko '/formResponse' mein change kiya gaya hai data post karne ke liye
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfm8u6Bfxpr9vULWVqWjLJzqSAap_H47xLjZAmOcmctyoalGg/formResponse";
+
+    try {
+      await fetch(formUrl, {
+        method: "POST",
+        mode: "no-cors", // Google Forms CORS error bypass karne ke liye
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: googleFormData.toString(),
+      });
+
+      toast.success("Thanks — your SignalStay review request is ready for the team.");
+      (event.target as HTMLFormElement).reset(); // Form clear karna
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form id="review-form" className="detail-form" onSubmit={handleSubmit}>
+      <p className="eyebrow eyebrow--violet">Request the review</p>
+      <h2>Start with the question.</h2>
+      
+      <label>
+        Name
+        <input name="name" required placeholder="Your name" disabled={isSubmitting} />
+      </label>
+      
+      <label>
+        Business email
+        <input name="email" required type="email" placeholder="name@company.com" disabled={isSubmitting} />
+      </label>
+      
+      <label>
+        Portfolio type
+        {/* Option values ko Google Form format ke hisaab se update kiya gaya hai */}
+        <select name="portfolio" defaultValue="Short-term rental portfolio" disabled={isSubmitting}>
+          <option value="Short-term rental portfolio">Short-term rental portfolio</option>
+          <option value="Independent hotel">Independent hotel</option>
+          <option value="Mixed portfolio">Mixed portfolio</option>
+        </select>
+      </label>
+      
+      <label>
+        What are you watching?
+        <textarea name="watching" placeholder="Rank drop, rate question, channel mix issue…" disabled={isSubmitting} />
+      </label>
+      
+      <button className="button button--violet" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Submitting..." : <>Submit review request <ArrowUpRight size={16} /></>}
+      </button>
+    </form>
+  );
 }
