@@ -6,6 +6,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Tailwind CSS v4 directives; recognized by Tailwind at build time. */
+/* stylelint-disable at-rule-no-unknown -- Tailwind CSS v4 directives. */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -33,6 +35,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 }
+/* stylelint-enable at-rule-no-unknown */
 
 :root {
   --navy: #080d22;
